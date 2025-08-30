@@ -151,4 +151,11 @@ io.on('connection', socket => {
   });
 });
 
-httpServer.listen(PORT, () => console.log(`Serveur sur port ${PORT}`));
+const PORT = process.env.PORT || 3000;
+
+httpServer.listen(PORT, () => {
+  console.log(`Serveur en écoute sur le port ${PORT}`);
+});
+
+// Local
+// httpServer.listen(PORT, () => console.log(`Serveur sur port ${PORT}`));
