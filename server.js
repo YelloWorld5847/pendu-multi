@@ -7,8 +7,6 @@ const app = express();
 const httpServer = createServer(app);
 const io = new SocketIOServer(httpServer, { cors: { origin: '*' } });
 
-const PORT = process.env.PORT || 3000;
-
 app.use(express.static('public'));
 
 // --- Gestion des parties ---
