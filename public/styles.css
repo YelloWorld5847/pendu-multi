@@ -1,0 +1,60 @@
+:root {
+  --bg: #0b0f17;
+  --card: #141a24;
+  --text: #e7eef7;
+  --muted: #a8b2c3;
+  --accent: #5aa7ff;
+  --danger: #ff6b6b;
+  --ok: #5cd68d;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; font-family: 'Segoe UI', Roboto, system-ui; }
+body { background: var(--bg); color: var(--text); display: flex; justify-content: center; align-items: flex-start; padding: 20px; }
+
+.container { width: 100%; max-width: 900px; }
+
+h1, h2 { margin: 8px 0; font-weight: 700; text-align: center; }
+
+input, button {
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #2a3650;
+  font-size: 16px;
+}
+
+input { background: #0f1521; color: var(--text); width: 100%; margin-bottom: 8px; }
+button { cursor: pointer; background: var(--accent); color: #061327; font-weight: 700; border: none; transition: 0.2s; }
+button:hover { background: #4a90e2; }
+
+section { margin-top: 20px; }
+.menu-actions { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; }
+.menu-actions div { background: var(--card); padding: 20px; border-radius: 16px; flex: 1 1 300px; min-width: 280px; }
+
+.error { color: var(--danger); text-align: center; margin-top: 8px; }
+
+#game { background: var(--card); padding: 20px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+
+.word { font-size: 2rem; letter-spacing: 10px; font-weight: 700; margin: 10px 0; text-align: center; }
+
+.players { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.player { padding: 6px 12px; border-radius: 999px; background: #0e1522; border: 1px solid #1e2a41; color: var(--muted); font-weight: 500; }
+.player.current { background: var(--accent); color: #061327; font-weight: 700; }
+
+.letters { display: grid; grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); gap: 8px; width: 100%; max-width: 500px; justify-items: center; margin-top: 10px; }
+.letters button { width: 40px; height: 40px; background: #0e1522; color: var(--text); border: 1px solid #2a3650; font-weight: 700; transition: 0.2s; }
+.letters button:hover:not(:disabled) { background: var(--accent); color: #061327; }
+.letters button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.status { font-size: 1.5rem; font-weight: 700; }
+.status.win { color: var(--ok); }
+.status.lose { color: var(--danger); }
+
+#timer { font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; }
+
+input[type=number] { width: 60px; }
+
+@media (max-width: 600px) {
+  .menu-actions { flex-direction: column; align-items: center; }
+  .letters { grid-template-columns: repeat(6, 1fr); }
+}

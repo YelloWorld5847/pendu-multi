@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendu Multijoueur</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="container">
+
+  <!-- MENU -->
+  <section id="menu">
+    <h1>Pendu Multijoueur</h1>
+    <div class="menu-actions">
+      <div class="create">
+        <h2>Créer une partie</h2>
+        <input id="createName" placeholder="Votre pseudo">
+        <label>Max erreurs: <input id="createMaxWrong" type="number" value="6" min="1" max="20"></label>
+        <label>Temps par joueur (s): <input id="createTurnTime" type="number" value="20" min="5" max="60"></label>
+        <button id="createBtn">Créer</button>
+      </div>
+      <div class="join">
+        <h2>Rejoindre une partie</h2>
+        <input id="joinName" placeholder="Votre pseudo">
+        <input id="joinCode" placeholder="Code partie">
+        <button id="joinBtn">Rejoindre</button>
+      </div>
+    </div>
+    <div id="menuError" class="error"></div>
+  </section>
+
+  <!-- GAME -->
+  <section id="game" style="display:none;">
+    <h2>Partie: <span id="gameId"></span></h2>
+    <div id="timer">Temps restant: <span id="timeLeft"></span>s</div>
+    <div id="word" class="word">_ _ _</div>
+    <div>Erreurs: <span id="wrong">0</span>/<span id="maxWrong">6</span></div>
+    <div class="players" id="players"></div>
+    <div class="letters" id="letters"></div>
+    <div class="status" id="gameStatus"></div>
+    <button id="newGameBtn">Nouvelle partie</button>
+  </section>
+
+</main>
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="/client.js"></script>
+</body>
+</html>
